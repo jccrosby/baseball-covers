@@ -1,0 +1,6 @@
+# Allow CORS for all paths
+[[headers]]
+for = "/*"
+
+[headers.values]
+Access-Control-Allow-Origin = "*"
