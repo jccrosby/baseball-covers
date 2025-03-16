@@ -7,7 +7,7 @@ import { Buffer } from 'node:buffer'
 import { $fetch } from 'ofetch'
 
 const BASE_URL = 'https://api.unsplash.com'
-const COLLECTION_ID = '94734566'
+const COLLECTION_ID = 'pE4-mnD9cIc'
 const DIR_DOWNLOADS = 'downloads'
 const DIR_STATIC = 'static'
 const USE_CACHE = true
@@ -27,14 +27,14 @@ else {
   for (let page = 1; page <= 10; page++) {
     console.log('Page:', page)
     const newPhotos = await $fetch(
-    `${BASE_URL}/collections/${COLLECTION_ID}/photos`,
-    {
-      query: {
-        client_id: process.env.UNSPLASH_ACCESS_KEY,
-        per_page: perPage,
-        page: page.toString(),
+      `${BASE_URL}/collections/${COLLECTION_ID}/photos`,
+      {
+        query: {
+          client_id: process.env.UNSPLASH_ACCESS_KEY,
+          per_page: perPage,
+          page: page.toString(),
+        },
       },
-    },
     ) as Photo[]
     photos.push(...newPhotos)
     if (newPhotos.length < perPage)
